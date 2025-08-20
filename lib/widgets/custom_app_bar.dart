@@ -12,23 +12,47 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          /// Left Side: Logo + App Name + Greeting
+          Row(
             children: [
-              Text(
-                'Good morning',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+              /// App Logo
+              /*ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  'assets/images/logo_shoes.png', 
+                  height: 20,
+                  width: 20,
+                  fit: BoxFit.cover,
                 ),
-              ),
-              Text(
-                'Rahul Yadav',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              ),*/
+              const SizedBox(width: 8),
+
+              /// App Name + Greeting
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Shoes Mart',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Good morning, Rahul',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
+                        ),
+                  ),
+                ],
               ),
             ],
           ),
+
+          /// Right Side: Search + Cart (Notification)
           Row(
             children: [
               IconButton(
